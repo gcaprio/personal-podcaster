@@ -1,0 +1,5 @@
+{% if pocket_access_token %}
+Logged In! {{ pocket_access_token }}
+{% else %}
+Not Logged in. Click <a href='{% url 'pocket_auth:index' %}'>here</a>
+{% endif %}
