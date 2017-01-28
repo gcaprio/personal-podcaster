@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 POCKET_CONSUMER_KEY = '61618-81636dfe3600635d40250f82'
 POCKET_REQUEST_URL = 'https://getpocket.com/v3/oauth/request'
 POCKET_AUTHORIZE_URL = 'https://getpocket.com/v3/oauth/authorize'
+
+MEDIA_ROOT = 'downloads/'

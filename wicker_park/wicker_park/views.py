@@ -7,6 +7,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 
+
 def index(request):
     access_tokens = AccessToken.objects.all()
 
