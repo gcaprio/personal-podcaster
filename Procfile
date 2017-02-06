@@ -1,0 +1,1 @@
+web: gunicorn wicker_park.wsgi --log-file -
