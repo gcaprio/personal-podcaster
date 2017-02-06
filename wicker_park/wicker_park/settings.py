@@ -118,6 +118,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR + '/static'
 
 POCKET_CONSUMER_KEY = '61618-81636dfe3600635d40250f82'
 POCKET_REQUEST_URL = 'https://getpocket.com/v3/oauth/request'
