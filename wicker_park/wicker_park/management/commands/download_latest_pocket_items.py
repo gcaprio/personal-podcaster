@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import unicode_literals
 
 import pocket
@@ -17,8 +18,6 @@ class Command(BaseCommand):
             pocket_instance = pocket.Pocket(settings.POCKET_CONSUMER_KEY, at.access_token)
 
             response, headers = pocket_instance.get(contentType='video', wait=False)
-
-            #print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
 
             items_list = response['list']
 

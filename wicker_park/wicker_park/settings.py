@@ -117,13 +117,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
 STATIC_URL = '/static/'
 
 POCKET_CONSUMER_KEY = '61618-81636dfe3600635d40250f82'
 POCKET_REQUEST_URL = 'https://getpocket.com/v3/oauth/request'
 POCKET_AUTHORIZE_URL = 'https://getpocket.com/v3/oauth/authorize'
 
-MEDIA_ROOT = 'downloads/'
+MEDIA_ROOT = BASE_DIR + '/downloads'

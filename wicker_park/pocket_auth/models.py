@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -14,4 +15,7 @@ class PocketItem(models.Model):
     resolved_id = models.IntegerField()
     resolved_title = models.TextField()
     resolved_url = models.URLField()
-    downloaded_file = models.FileField(upload_to='pocket_items', blank=None, null=True)
+    downloaded_file = models.FileField(upload_to='pocket_items', blank=None, null=True, default='')
+
+    def __unicode__(self):
+        return self.resolved_title
