@@ -1,2 +1,2 @@
-# pocket_podcaster
+# personal_podcaster
 brew install ffmpeg
