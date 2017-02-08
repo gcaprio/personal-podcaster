@@ -47,7 +47,7 @@ class Command(BaseCommand):
             for pocket_item in undownloaded_pocket_items:
                 resolved_title_hash = hashlib.md5(pocket_item.resolved_title.encode())
 
-                ydl_opts['outtmpl'] = '%s/%s.mp3' % ( settings.MEDIA_ROOT, unicode(resolved_title_hash.hexdigest()))
+                ydl_opts['outtmpl'] = '%s/%s.mp3' % (settings.MEDIA_ROOT, unicode(resolved_title_hash.hexdigest()))
 
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([pocket_item.resolved_url])
