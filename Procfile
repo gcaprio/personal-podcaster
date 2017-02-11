@@ -1,1 +1,1 @@
-web: gunicorn wicker_park.wsgi --log-file -
+web: gunicorn --chdir wicker_park  wicker_park.wsgi --log-file -
