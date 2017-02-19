@@ -1,11 +1,12 @@
 import pocket
 
-from pocket_auth.models import AccessToken
+from pocket_auth.models import AccessToken, PocketItem
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
+
 
 
 def index(request):
@@ -18,5 +19,6 @@ def index(request):
 
     context = {
                 'pocket_access_token': pocket_access_token,
+                'total_items_downloaded': PocketItem.objects.all().count()
             }
     return render(request, 'wicker_park/index.html', context)

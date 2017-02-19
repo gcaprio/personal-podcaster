@@ -24,7 +24,7 @@ SECRET_KEY = '54me&2c6iyg&_9e9p1=nme8l53ja*&cg!r5^)+$(qnnhg#hm*m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['personal-podcaster.herokuapp.com', '0.0.0.0']
+#ALLOWED_HOSTS = ['personal-podcaster.herokuapp.com', '0.0.0.0']
 
 
 # Application definition

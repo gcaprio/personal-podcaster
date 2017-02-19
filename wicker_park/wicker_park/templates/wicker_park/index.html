@@ -3,3 +3,5 @@ Logged In! {{ pocket_access_token }}
 {% else %}
 Not Logged in. Click <a href='{% url 'pocket_auth:index' %}'>here</a>
 {% endif %}
+
+Total Items Downloaded: {{ total_items_downloaded }}

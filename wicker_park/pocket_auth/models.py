@@ -12,10 +12,10 @@ class AccessToken(TimeStampedModel):
 class PocketItem(TimeStampedModel):
     pocket_id = models.IntegerField()
     given_title = models.TextField()
-    given_url = models.URLField()
+    given_url = models.URLField(max_length=4096)
     resolved_id = models.IntegerField()
     resolved_title = models.TextField()
-    resolved_url = models.URLField()
+    resolved_url = models.URLField(max_length=4096)
     downloaded_file = models.FileField(upload_to='pocket_items', blank=None, null=True, default='')
 
     def __unicode__(self):
