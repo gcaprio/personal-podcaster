@@ -2,13 +2,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django_extensions.db.models import TimeStampedModel
 
 
-class AccessToken(models.Model):
+class AccessToken(TimeStampedModel):
     access_token = models.TextField()
 
 
-class PocketItem(models.Model):
+class PocketItem(TimeStampedModel):
     pocket_id = models.IntegerField()
     given_title = models.TextField()
     given_url = models.URLField()

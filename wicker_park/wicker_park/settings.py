@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -25,7 +24,7 @@ SECRET_KEY = '54me&2c6iyg&_9e9p1=nme8l53ja*&cg!r5^)+$(qnnhg#hm*m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['personal-podcaster.herokuapp.com']
+ALLOWED_HOSTS = ['personal-podcaster.herokuapp.com', '0.0.0.0']
 
 
 # Application definition
@@ -78,11 +77,14 @@ WSGI_APPLICATION = 'wicker_park.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'personal_podcaster',
+        'USER': 'personal_podcaster',
+        'PASSWORD': 'personal_podcaster',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
