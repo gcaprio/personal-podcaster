@@ -19,6 +19,8 @@ def index(request):
 
     context = {
                 'pocket_access_token': pocket_access_token,
-                'total_items_downloaded': PocketItem.objects.all().count()
+                'total_items_downloaded': PocketItem.objects.all().count(),
+                'total_videos_converted': PocketItem.objects.exclude(downloaded_file='').count(),
+                'total_videos_not_converted': PocketItem.objects.filter(downloaded_file='').count()
             }
     return render(request, 'wicker_park/index.html', context)

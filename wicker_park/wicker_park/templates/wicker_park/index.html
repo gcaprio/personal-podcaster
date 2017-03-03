@@ -4,4 +4,12 @@ Logged In! {{ pocket_access_token }}
 Not Logged in. Click <a href='{% url 'pocket_auth:index' %}'>here</a>
 {% endif %}
 
-Total Items Downloaded: {{ total_items_downloaded }}
+<p>
+    Total Items Downloaded: {{ total_items_downloaded }}
+</p>
+<p>
+    Total Items Converted: {{ total_videos_converted }}
+</p>
+<p>
+    Total Items Not Converted: {{ total_videos_not_converted }}
+</p>
