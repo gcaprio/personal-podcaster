@@ -8,6 +8,7 @@ from pocket_auth.models import PocketItem
 
 from django.core.management import BaseCommand
 from django.conf import settings
+from youtube_dl.utils import DownloadError, ExtractorError
 
 
 class Logger(object):
@@ -33,28 +34,23 @@ class Command(BaseCommand):
                 #'logger': Logger(),
             }
 
-            #pocket_items_to_be_downloaded = PocketItem.objects.filter(
-            #    downloaded_file=''
-            #)[:1]
-
             pocket_items_to_be_downloaded = PocketItem.objects.filter(
-                id=3
-            )[:1]
+                downloaded_file=''
+            )
 
             for pocket_item in pocket_items_to_be_downloaded:
-                print pocket_item
-                try:
-                    resolved_title_hash = hashlib.md5(pocket_item.resolved_title.encode())
+                resolved_title_hash = hashlib.md5(pocket_item.resolved_title.encode('utf-8'))
 
-                    ydl_opts['outtmpl'] = '%s/%s' % (settings.MEDIA_ROOT, unicode(resolved_title_hash.hexdigest())) + '.%(ext)s'
-                    #ydl_opts['outtmpl'] = '%s/%(title)s.f%(format_id)s.%(ext)s' % (settings.MEDIA_ROOT)
-                    #ydl_opts['outtmpl'] = settings.MEDIA_ROOT + '/%(title)s.f%(format_id)s.%(ext)s'
+                ydl_opts['outtmpl'] = '%s/%s' % (settings.MEDIA_ROOT, unicode(resolved_title_hash.hexdigest())) + '.%(ext)s'
+                #ydl_opts['outtmpl'] = '%s/%(title)s.f%(format_id)s.%(ext)s' % (settings.MEDIA_ROOT)
+                #ydl_opts['outtmpl'] = settings.MEDIA_ROOT + '/%(title)s.f%(format_id)s.%(ext)s'
 
-                    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                    try:
                         ydl.download([pocket_item.resolved_url])
 
                         pocket_item.downloaded_file = resolved_title_hash.hexdigest()
 
                         pocket_item.save()
-                except:
-                    pass
+                    except DownloadError as de:
+                        print de
