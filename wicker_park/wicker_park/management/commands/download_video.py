@@ -8,7 +8,7 @@ from pocket_auth.models import PocketItem
 
 from django.core.management import BaseCommand
 from django.conf import settings
-from youtube_dl.utils import DownloadError, ExtractorError
+from youtube_dl.utils import DownloadError
 
 
 class Logger(object):
