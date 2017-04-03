@@ -7,3 +7,4 @@ Werkzeug==0.12.1
 django-debug-toolbar==1.7.0
 django-extensions==1.7.8
 gunicorn==19.7.1
+django-itunespodcast
